@@ -11,12 +11,6 @@ namespace Lab1
         public int X { get; }
         public int Y { get; }
 
-        /// <summary>
-        /// Wall - Spetificator == 0, 
-        /// Pass - Spetificator == 1,
-        /// Coin - Spetificator == 2,
-        /// Exit - Spetificator == 3. 
-        /// </summary>
         public Spetificator spetificator { get; set; }
 
         /// <summary>
@@ -24,7 +18,7 @@ namespace Lab1
         /// </summary>
         /// <param name="X"></param>
         /// <param name="Y"></param>
-        /// <param name="spec">Spetificator(0 - Wall, 1 - Pass, 2 - Coin, 3 - Exit)</param>
+        /// <param name="spec"></param>
         public Cell(int X, int Y, Spetificator spec)
         {
             this.X = X;
