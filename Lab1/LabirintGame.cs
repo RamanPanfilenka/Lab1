@@ -15,7 +15,6 @@ namespace Lab1
             var hero = Hero.GetHero(generator.StartCell.X, generator.StartCell.Y);
             Drower.Drow(lab, hero);
             ConsoleKeyInfo key;
-            bool work = true;
             do
             {
                 bool canMove = false;
@@ -57,26 +56,26 @@ namespace Lab1
                         break;
 
                     case ConsoleKey.Escape:
-                        work = false;
+                        Environment.Exit(0);
                         break;
                 }
+                //If hero take coin
                 if (lab[hero.X,hero.Y].Spetificator == 2)
                 {
                     lab[hero.X, hero.Y].Spetificator = 1;
                     hero.Score++;
                 }
+                
+                //If hero find exit
                 if (hero.X == generator.StopCell.X && hero.Y == generator.StopCell.Y)
                 {
                     lab = generator.Generate(hero.X, hero.Y);
                     Console.Clear();
                     hero.Level++;
                 }
-                Drower.Drow(lab, hero);
-                
+                Drower.Drow(lab, hero);       
             }
-            while (work);
-            Environment.Exit(0);
-            Console.Read();
+            while (true);
         }
     }
 }

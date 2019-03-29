@@ -12,18 +12,21 @@ namespace Lab1
         Labirint lab = new Labirint();
         List<Cell> NotPassCell = new List<Cell>();
         Stack<Cell> PassCell = new Stack<Cell>();
+
         public Cell StartCell;
         public Cell StopCell;
+
         public int Wigth { get; private set; }
         public int Height { get; private set; }
+
         private Random random = new Random();
 
         /// <summary>
-        /// Use default Wigth = 25 and Heigth = 15
+        /// Use default Wigth = 35 and Heigth = 15
         /// </summary>
         /// <param name="Wigth"></param>
         /// <param name="Height"></param>
-        public GeneratorLabirint(int Wigth = 25, int Height = 15)
+        public GeneratorLabirint(int Wigth = 35, int Height = 15)
         {
             this.Height = Height;
             this.Wigth = Wigth;
@@ -38,11 +41,13 @@ namespace Lab1
         public Labirint Generate( int X = 0, int Y = 0)
         {
             lab = new Labirint(Wigth, Height);
+            //All cells with spetificator == 1 is add to NotPassCell
             foreach (var cell in lab.Cells)
             {
                 if (cell.Spetificator == 1)
                     NotPassCell.Add(cell);
             }
+            //Random first cell
             if (X == 0 && Y == 0)
             {
                 while (true)
@@ -70,6 +75,7 @@ namespace Lab1
                     if (PassCell.Count == 0)
                         break;
                 }
+                //The choice direction
                 int direct = random.Next(NearCells.Count);
                 PassCell.Push(currentCell);
                 if (NearCells.Count != 0) DeleteWall(currentCell, NearCells[direct]);

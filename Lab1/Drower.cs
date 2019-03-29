@@ -8,6 +8,11 @@ namespace Lab1
 {
     class Drower
     {
+        /// <summary>
+        /// Drow all elements in console
+        /// </summary>
+        /// <param name="lab">Maze</param>
+        /// <param name="hero">Hero</param>
         public static void Drow(Labirint lab, Hero hero)
         {
             Console.WriteLine("Welcome to simple maze!");
@@ -20,6 +25,7 @@ namespace Lab1
             Console.WriteLine("Press ESC - to exit from application.");
             Console.WriteLine($"Score: {hero.Score}");
             Console.WriteLine($"Level: {hero.Level}");
+
             for (int y = 0; y < lab.Height; y++)
             { 
                 Console.WriteLine();

@@ -19,6 +19,12 @@ namespace Lab1
         /// </summary>
         public int Spetificator { get; set; }
 
+        /// <summary>
+        /// Create Cell with cordinate X and Y and Spetificator
+        /// </summary>
+        /// <param name="X"></param>
+        /// <param name="Y"></param>
+        /// <param name="spec">Spetificator(0 - Wall, 1 - Pass, 2 - Coin, 3 - Exit)</param>
         public Cell(int X, int Y, int spec)
         {
             this.X = X;

@@ -17,6 +17,12 @@ namespace Lab1
 
         private static Hero hero;
 
+        /// <summary>
+        /// Return only one object of hero with positioin X and Y
+        /// </summary>
+        /// <param name="X"></param>
+        /// <param name="Y"></param>
+        /// <returns></returns>
         public static Hero GetHero(int X, int Y)
         {  
             if (hero == null) hero = new Hero(X ,Y); 

@@ -12,12 +12,17 @@ namespace Lab1
         public int Height { get; private set; }
         public List<Cell> Cells = new List<Cell>();
 
-        public Labirint(int Width = 25, int Height = 15)
+        /// <summary>
+        /// Create maze with Width and Height. Default Width == 35 and Height == 15
+        /// </summary>
+        /// <param name="Width"></param>
+        /// <param name="Height"></param>
+        public Labirint(int Width = 35, int Height = 15)
         {
             this.Height = Height;
             this.Width = Width;
 
-
+            //Create basis for maze
             for (int x = 0; x < Width; x++)
             {
                 for (int y = 0; y < Height; y++)
