@@ -44,7 +44,7 @@ namespace Lab1
             //All cells with spetificator == 1 is add to NotPassCell
             foreach (var cell in lab.Cells)
             {
-                if (cell.Spetificator == 1)
+                if ((cell.spetificator == Cell.Spetificator.Pass))
                     NotPassCell.Add(cell);
             }
             //Random first cell
@@ -54,7 +54,7 @@ namespace Lab1
                 {
                     X = random.Next(Wigth - 1) + 1;
                     Y = random.Next(Height - 1) + 1;
-                    if (lab[X,Y].Spetificator == 1)
+                    if (lab[X,Y].spetificator == Cell.Spetificator.Pass)
                     {
                         NotPassCell.Remove(lab[X,Y]);
                         break;
@@ -83,7 +83,7 @@ namespace Lab1
                 NotPassCell.Remove(currentCell);
             }
             StopCell = currentCell;
-            currentCell.Spetificator = 3;
+            currentCell.spetificator = Cell.Spetificator.Exit;
             lab = GenerateCoins(lab);
             return lab;
         }
@@ -122,25 +122,25 @@ namespace Lab1
             //Second Cell is Left
             if ((firstCell.X - secondCell.X) > 0)
             {
-                lab[firstCell.X - 1, firstCell.Y].Spetificator = 1;
+                lab[firstCell.X - 1, firstCell.Y].spetificator = Cell.Spetificator.Pass;
             }
             else
             {
                 //Second Cell is Rigth
                 if ((firstCell.X - secondCell.X) < 0)
                 {
-                    lab[firstCell.X + 1, firstCell.Y].Spetificator = 1;
+                    lab[firstCell.X + 1, firstCell.Y].spetificator = Cell.Spetificator.Pass;
                 }
                 else
                 {
                     //Second Cell is Upper
                     if ((firstCell.Y - secondCell.Y) > 0)
                     {
-                        lab[firstCell.X, firstCell.Y - 1].Spetificator = 1;
+                        lab[firstCell.X, firstCell.Y - 1].spetificator = Cell.Spetificator.Pass;
                     }
                     else
                         //Second Cell is Down
-                       lab[firstCell.X, firstCell.Y + 1].Spetificator = 1;
+                       lab[firstCell.X, firstCell.Y + 1].spetificator = Cell.Spetificator.Pass;
                 }
             }
         }
@@ -157,9 +157,9 @@ namespace Lab1
             {
                 int X = random.Next(lab.Width - 1) + 1;
                 int Y = random.Next(lab.Height - 1) + 1;
-                if (lab[X,Y].Spetificator == 1)
+                if (lab[X,Y].spetificator == Cell.Spetificator.Pass)
                 {
-                    lab[X,Y].Spetificator = 2;
+                    lab[X,Y].spetificator = Cell.Spetificator.Coin;
                     i++;
                 }
             }

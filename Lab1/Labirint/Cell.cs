@@ -17,7 +17,7 @@ namespace Lab1
         /// Coin - Spetificator == 2,
         /// Exit - Spetificator == 3. 
         /// </summary>
-        public int Spetificator { get; set; }
+        public Spetificator spetificator { get; set; }
 
         /// <summary>
         /// Create Cell with cordinate X and Y and Spetificator
@@ -25,11 +25,19 @@ namespace Lab1
         /// <param name="X"></param>
         /// <param name="Y"></param>
         /// <param name="spec">Spetificator(0 - Wall, 1 - Pass, 2 - Coin, 3 - Exit)</param>
-        public Cell(int X, int Y, int spec)
+        public Cell(int X, int Y, Spetificator spec)
         {
             this.X = X;
             this.Y = Y;
-            Spetificator = spec;
+            spetificator = spec;
+        }
+
+        public enum Spetificator
+        {
+            Wall,
+            Pass,
+            Coin,
+            Exit
         }
     }
 }

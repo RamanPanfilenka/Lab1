@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Direction.cs" />
     <Compile Include="Labirint\Cell.cs" />
     <Compile Include="Drower.cs" />
     <Compile Include="Labirint\GeneratorLabirint.cs" />
@@ -50,7 +51,6 @@
     <Compile Include="Labirint\Labirint.cs" />
     <Compile Include="LabirintGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rules.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

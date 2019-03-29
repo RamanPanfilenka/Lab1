@@ -12,66 +12,47 @@ namespace Lab1
         {
             GeneratorLabirint generator = new GeneratorLabirint();
             var lab = generator.Generate();
-            var hero = Hero.GetHero(generator.StartCell.X, generator.StartCell.Y);
+            var hero = Hero.GetHero();
+            hero.SetPosition(generator.StartCell.X, generator.StartCell.Y);
             Drower.Drow(lab, hero);
             ConsoleKeyInfo key;
             do
             {
-                bool canMove = false;
                 key = Console.ReadKey();
                 Console.Clear();
                 switch (key.Key)
                 {
                     case ConsoleKey.R:
                         lab = generator.Generate();
-                        hero = Hero.GetHero(generator.StartCell.X, generator.StartCell.Y);
                         break;
 
                     case ConsoleKey.A:
                     case ConsoleKey.LeftArrow:
-                        canMove = Rules.CanMove(hero.X - 1, hero.Y, lab);
-                        if (canMove)
-                            hero.X -= 1; 
+                        lab.TryMove(hero.X - 1, hero.Y, Direction.Left);
                         break;
 
                     case ConsoleKey.D:
                     case ConsoleKey.RightArrow:
-                        canMove = Rules.CanMove(hero.X + 1, hero.Y, lab);
-                        if (canMove)
-                            hero.X += 1;
+                        lab.TryMove(hero.X + 1, hero.Y, Direction.Right);
                         break;
 
                     case ConsoleKey.W:
                     case ConsoleKey.UpArrow:
-                        canMove = Rules.CanMove(hero.X, hero.Y - 1, lab);
-                        if (canMove)
-                            hero.Y -= 1;
+                        lab.TryMove(hero.X, hero.Y - 1, Direction.Up);
                         break;
 
                     case ConsoleKey.S:
                     case ConsoleKey.DownArrow:
-                        canMove = Rules.CanMove(hero.X, hero.Y + 1, lab);
-                        if (canMove)
-                            hero.Y += 1;
+                        lab.TryMove(hero.X, hero.Y + 1, Direction.Down);
                         break;
 
                     case ConsoleKey.Escape:
                         Environment.Exit(0);
                         break;
                 }
-                //If hero take coin
-                if (lab[hero.X,hero.Y].Spetificator == 2)
+                if (lab.Passed == true)
                 {
-                    lab[hero.X, hero.Y].Spetificator = 1;
-                    hero.Score++;
-                }
-                
-                //If hero find exit
-                if (hero.X == generator.StopCell.X && hero.Y == generator.StopCell.Y)
-                {
-                    lab = generator.Generate(hero.X, hero.Y);
-                    Console.Clear();
-                    hero.Level++;
+                    lab = generator.Generate();
                 }
                 Drower.Drow(lab, hero);       
             }
