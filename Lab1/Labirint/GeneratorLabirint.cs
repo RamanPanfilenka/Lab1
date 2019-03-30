@@ -22,11 +22,11 @@ namespace Lab1
         private Random random = new Random();
 
         /// <summary>
-        /// Use default Wigth = 35 and Heigth = 15
+        /// Use default Wigth = 11 and Heigth = 9
         /// </summary>
         /// <param name="Wigth"></param>
         /// <param name="Height"></param>
-        public GeneratorLabirint(int Wigth = 35, int Height = 15)
+        public GeneratorLabirint(int Wigth = 11, int Height = 9)
         {
             this.Height = Height;
             this.Wigth = Wigth;
