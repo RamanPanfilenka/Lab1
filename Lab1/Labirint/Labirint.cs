@@ -18,7 +18,7 @@ namespace Lab1
         /// </summary>
         /// <param name="Width"></param>
         /// <param name="Height"></param>
-        public Labirint(int Width = 35, int Height = 15)
+        public Labirint(int Width = 11, int Height = 9)
         {
             this.Height = Height;
             this.Width = Width;
