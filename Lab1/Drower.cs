@@ -48,7 +48,7 @@ namespace Lab1
                                 if (lab[x,y].spetificator == Cell.Spetificator.Exit)
                                     str.Append(">");
                                 else
-                                    str.Append(".");
+                                    str.Append(" ");
                             }
                         }
                     }
