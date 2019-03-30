@@ -14,7 +14,7 @@ namespace Lab1
         public bool Passed = false;
 
         /// <summary>
-        /// Create maze with Width and Height. Default Width == 35 and Height == 15
+        /// Create maze with Width and Height. Default Width == 11 and Height == 9
         /// </summary>
         /// <param name="Width"></param>
         /// <param name="Height"></param>
